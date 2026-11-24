@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth, isFirebaseConfigured } from '@/lib/firebase';
 import {
   INITIAL_ANOMALY_ALERTS,
+  INITIAL_ANNOUNCEMENTS,
   INITIAL_CERTIFICATES,
   INITIAL_COMPLAINTS,
   INITIAL_DUTY_LOGS,
@@ -17,6 +18,7 @@ import {
 } from '@/data/mockData';
 import type {
   AnomalyAlert,
+  Announcement,
   CitizenComplaint,
   DutyLog,
   NameChangeRequest,
@@ -52,6 +54,7 @@ interface PortalContextValue {
   recruitments: RecruitmentApplication[];
   nameRequests: NameChangeRequest[];
   anomalyAlerts: AnomalyAlert[];
+  announcements: Announcement[];
   loginStaff: (email: string, password: string) => Promise<{ ok: boolean; error?: string }>;
   loginDemoAs: (staffUid: string) => void;
   registerStaffAccount: (data: RegisterStaffInput) => { ok: boolean; message: string };
@@ -102,6 +105,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   const [recruitments, setRecruitments] = useState<RecruitmentApplication[]>(INITIAL_RECRUITMENTS);
   const [nameRequests, setNameRequests] = useState<NameChangeRequest[]>(INITIAL_NAME_REQUESTS);
   const [anomalyAlerts, setAnomalyAlerts] = useState<AnomalyAlert[]>(INITIAL_ANOMALY_ALERTS);
+  const [announcements] = useState<Announcement[]>(INITIAL_ANNOUNCEMENTS);
 
   const loginStaff = async (
     email: string,
@@ -458,6 +462,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
         recruitments,
         nameRequests,
         anomalyAlerts,
+        announcements,
         loginStaff,
         loginDemoAs,
         registerStaffAccount,

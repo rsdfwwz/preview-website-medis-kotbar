@@ -207,3 +207,16 @@ export interface RecruitmentApplication {
   tanggalDaftar: string;
   status: 'seleksi' | 'diterima' | 'ditolak';
 }
+
+// =========================================================================
+// PENGUMUMAN PUBLIK
+// =========================================================================
+export interface Announcement {
+  id: string;
+  penting: boolean;
+  kategori: string;
+  penulis: string;
+  dipublikasikanPada: string;
+  judul: string;
+  isi: string;
+}

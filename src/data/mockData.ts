@@ -1,5 +1,6 @@
 import type {
   AnomalyAlert,
+  Announcement,
   CitizenComplaint,
   DutyLog,
   NameChangeRequest,
@@ -402,3 +403,6 @@ export const INITIAL_RECRUITMENTS: RecruitmentApplication[] = [
     status: 'seleksi',
   },
 ];
+
+// Data pengumuman awal. Isi dapat ditambahkan melalui pengelolaan pengumuman.
+export const INITIAL_ANNOUNCEMENTS: Announcement[] = [];

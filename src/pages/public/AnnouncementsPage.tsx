@@ -20,7 +20,12 @@ export function AnnouncementsPage() {
       </div>
 
       <div className="space-y-6">
-        {announcements.map((ann) => (
+        {announcements.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
+            Belum ada pengumuman yang dipublikasikan.
+          </div>
+        ) : (
+          announcements.map((ann) => (
           <article
             key={ann.id}
             className={`rounded-2xl border bg-white p-6 shadow-sm sm:p-8 ${
@@ -58,7 +63,8 @@ export function AnnouncementsPage() {
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{ann.isi}</p>
           </article>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
